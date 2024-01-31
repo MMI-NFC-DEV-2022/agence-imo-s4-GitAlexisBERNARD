@@ -19,7 +19,7 @@ import { RouterLink } from 'vue-router'
                             <RouterLink to="/maison">Affiche Maison</RouterLink>
                         </li>
                         <li>
-                            <RouterLink to="/web5">Suite</RouterLink>
+                            <RouterLink to="/offres">Suite</RouterLink>
                         </li>
                     </ul>
             </div>
