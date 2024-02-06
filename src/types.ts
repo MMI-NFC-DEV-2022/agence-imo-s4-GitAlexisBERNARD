@@ -9,3 +9,4 @@ export interface SchemaOffreMaison {
   adresse: string;
   surface: string;
 }
+

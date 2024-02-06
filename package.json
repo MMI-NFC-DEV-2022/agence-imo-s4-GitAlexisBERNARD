@@ -12,6 +12,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@formkit/themes": "^1.5.5",
+    "@formkit/vue": "^1.5.5",
     "@unhead/vue": "^1.4.1",
     "pocketbase": "^0.17.3",
     "scroll-lock": "^2.1.5",
