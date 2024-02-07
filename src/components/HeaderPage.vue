@@ -42,6 +42,9 @@ import Logo from '@/components/icons/logo.vue'
         <RouterLink to="/maison/edit/[id]" class="text-sm font-semibold leading-6 text-gray-900"
           >Ajouter une maison</RouterLink
         >
+        <RouterLink to="/maison/edit/listemaisonedit" class="text-sm font-semibold leading-6 text-gray-900"
+          >Liste des maisons à éditer</RouterLink
+        >
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <RouterLink to="/pageconnexion" class="text-sm font-semibold leading-6 text-gray-900"
