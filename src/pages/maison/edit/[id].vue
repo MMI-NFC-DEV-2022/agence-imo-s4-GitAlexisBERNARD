@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MaisonCard from '@/components/AfficheMaison.vue'
+import { supabase, user } from '@/supabase'
 const maison = ref({})
+async function upsertMaison(dataForm, node) {
+  const { data, error } = await supabase.from('Maisons').upsert(dataForm)
+  if (error) node.setErrors([error.message])
+}
 </script>
 
 <template>
@@ -14,6 +19,7 @@ const maison = ref({})
   <div class="p-2">
     <FormKit
       type="form"
+      @submit="upsertMaison"
       v-model="maison"
       :config="{
         classes: {
