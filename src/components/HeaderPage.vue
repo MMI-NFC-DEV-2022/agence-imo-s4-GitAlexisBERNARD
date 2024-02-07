@@ -24,6 +24,12 @@ import { RouterLink } from 'vue-router'
             <li>
               <RouterLink to="/maison/edit/[id]">Ajoute Maison</RouterLink>
             </li>
+            <li>
+              <RouterLink to="/listsupabase">List Supabase</RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/pageconnexion">Page de Connexion</RouterLink>
+            </li>
           </ul>
         </div>
       </div>

@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import MaisonCard from '@/components/AfficheMaison.vue'
 const maison = ref({})
-import '../../../../formkit.theme.mjs'
 </script>
 
 <template>
