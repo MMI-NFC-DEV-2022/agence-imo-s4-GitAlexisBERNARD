@@ -18,17 +18,9 @@ async function modifsupabase() {
 
   const { data, error } = await supabase
     .from('Maisons')
-    .update({
-      // Liste des champs à mettre à jour
-      nomMaison: maison.value.nomMaison,
-      prix: maison.value.prix,
-      adresse: maison.value.adresse,
-      nbrChambres: maison.value.nbrChambres,
-      nbrSDB: maison.value.nbrSDB,
-      surface: maison.value.surface,
-      favori: maison.value.favori
-    })
-    .eq('id', props.id)
+
+    
+    .upsert(maison.value).select(maison.value.id)
 
   if (error) {
     console.error('Erreur lors de la mise à jour:', error.message)
