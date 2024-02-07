@@ -4,8 +4,8 @@ import MaisonCard from '@/components/AfficheMaison.vue'
 import { supabase, user } from '@/supabase'
 const maison = ref({})
 async function upsertMaison(dataForm, node) {
-  const { data, error } = await supabase.from('Maisons').upsert(dataForm)
-  if (error) node.setErrors([error.message])
+ const { data, error } = await supabase.from("Maisons").upsert(dataForm);
+ if (error) node.setErrors([error.message])
 }
 </script>
 
