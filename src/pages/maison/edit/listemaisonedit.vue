@@ -5,9 +5,7 @@ import { useRouter } from 'vue-router'
 
 console.log('supabase :', supabase)
 
-let { data: Maisons, error } = await supabase
-  .from('Maisons')
-  .select('')
+const { data: Maisons, error } = await supabase.from('Maisons').select('*')
 console.log('Maisons :', Maisons)
 </script>
 
