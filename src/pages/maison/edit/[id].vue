@@ -2,12 +2,42 @@
 import { ref } from 'vue'
 import MaisonCard from '@/components/AfficheMaison.vue'
 import { supabase, user } from '@/supabase'
-
+import { defineProps } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter();
 const props = defineProps<{ id: string }>()
 let { data: Maisons, error } = await supabase.from('Maisons').select().eq('id', props.id).single()
 console.log('Maisons :', Maisons)
 let maison = ref({})
+
+
 maison.value = Maisons
+
+async function modifsupabase() {
+  if (!maison.value) return
+
+  const { data, error } = await supabase
+    .from('Maisons')
+    .update({
+      // Liste des champs à mettre à jour
+      nomMaison: maison.value.nomMaison,
+      prix: maison.value.prix,
+      adresse: maison.value.adresse,
+      nbrChambres: maison.value.nbrChambres,
+      nbrSDB: maison.value.nbrSDB,
+      surface: maison.value.surface,
+      favori: maison.value.favori
+    })
+    .eq('id', props.id)
+
+  if (error) {
+    console.error('Erreur lors de la mise à jour:', error.message)
+  } else {
+    router.push('/maison/edit/listemaisonedit')
+    console.log('Mise à jour réussie:')
+    
+  }
+}
 </script>
 
 <template>
@@ -21,6 +51,7 @@ maison.value = Maisons
     <FormKit
       type="form"
       v-model="maison"
+      @submit="modifsupabase"
       :config="{
         classes: {
           input: 'p-1 rounded border-red-300 shadow-sm border',
