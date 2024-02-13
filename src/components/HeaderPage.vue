@@ -11,7 +11,7 @@ import Logo from '@/components/icons/logo.vue'
         </a>
       </div>
       <div class="flex lg:hidden">
-        <button
+        <button>
           type="button"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
         >
@@ -44,6 +44,9 @@ import Logo from '@/components/icons/logo.vue'
         >
         <RouterLink to="/maison/edit/listemaisonedit" class="text-sm font-semibold leading-6 text-gray-900"
           >Liste des maisons à éditer</RouterLink
+        >
+        <RouterLink to="/quartier/" class="text-sm font-semibold leading-6 text-gray-900"
+          >Quartier</RouterLink
         >
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
