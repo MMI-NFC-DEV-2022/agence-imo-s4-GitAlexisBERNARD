@@ -14,11 +14,11 @@ console.log('Quartier :', Quartier)
     <h1>liste des Quartiers :</h1>
     <ul class="flex flex-col gap-2 p-2">
       <li v-for="nQuartier in Quartier" :key="nQuartier.id">
-        <Routerlink :to="{ name: 'quartier-id', params: { id: nQuartier.id } }">
+        <router-link :to="{ name: 'quartier-id', params: { id: nQuartier.id } }">
           <p class="bg-slate-500 p-3 rounded-3xl">
             <b>Modifier le nom du quartier :</b> {{ nQuartier.nomQuartier }}
           </p>
-        </Routerlink>
+        </router-link>
       </li>
     </ul>
   </div>

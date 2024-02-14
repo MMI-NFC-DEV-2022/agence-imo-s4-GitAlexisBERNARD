@@ -12,9 +12,8 @@ import Logo from '@/components/icons/logo.vue'
       </div>
       <div class="flex lg:hidden">
         <button>
-          type="button"
-          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-        >
+          type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5
+          text-gray-700" >
           <span class="sr-only">Open main menu</span>
           <svg
             class="h-6 w-6"
@@ -42,10 +41,12 @@ import Logo from '@/components/icons/logo.vue'
         <RouterLink to="/maison/edit/[id]" class="text-sm font-semibold leading-6 text-gray-900"
           >Ajouter une maison</RouterLink
         >
-        <RouterLink to="/maison/edit/listemaisonedit" class="text-sm font-semibold leading-6 text-gray-900"
+        <RouterLink
+          to="/maison/edit/listemaisonedit"
+          class="text-sm font-semibold leading-6 text-gray-900"
           >Liste des maisons à éditer</RouterLink
         >
-        <RouterLink to="/quartier/listquartieredit" class="text-sm font-semibold leading-6 text-gray-900"
+        <RouterLink to="/quartier/" class="text-sm font-semibold leading-6 text-gray-900"
           >Quartier</RouterLink
         >
       </div>
