@@ -1,18 +1,32 @@
 <script setup lang="ts">
 import groupBy from 'lodash/groupBy'
 import { supabase } from '../../supabase.ts'
+import { useRouter } from 'vue-router'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
+import { ref } from 'vue'
 const { data, error } = await supabase.from('quartiercommune').select('*')
 console.log(data)
 if (error) console.log("n'a pas pu charger la table quartiercommune :", error)
-async function supprimerQuartier(idquartier) {
-  const { error } = await supabase.from('Quartier').delete().match({ id: idquartier })
+let idQuartierASupprimer = 0
+const router = useRouter()
+async function supprimerQuartier() {
+  console.log('supprimerQuartier', idQuartierASupprimer)
+  const { data, error } = await supabase
+    .from('Quartier')
+    .delete()
+    .match({ id: idQuartierASupprimer })
+  console.log('data :', data, 'error :', error)
 
   if (error) {
-    console.error('Erreur lors de la suppression du quartier:', error.message)
+    console.error('Erreur à la suppression de ', idQuartierASupprimer, 'erreur :', error)
   } else {
-    console.log('Suppression réussie:')
+    router.push({ name: '/quartier/', force: true })
   }
+}
+const dialogSupprimer = ref<HTMLDialogElement>()
+function afficheDialog(idQuartier: number) {
+  idQuartierASupprimer = idQuartier
+  dialogSupprimer.value?.showModal()
 }
 </script>
 
@@ -48,16 +62,31 @@ async function supprimerQuartier(idquartier) {
               {{ quartierObject.nomQuartier }}
               <!-- Bouton de suppression ajouté à côté du nom du quartier -->
               <button
-                @click="supprimerQuartier(quartierObject.id_quartier)"
-                class="ml-4 rounded bg-red-500 p-1 text-white"
+                type="button"
+                @click="afficheDialog(quartierObject.id_quartier)"
+                class="focus-style justify-self-end rounded-md bg-red-500 p-2 shadow-sm"
               >
-                Supprimer
+                Supprimer l'offre
               </button>
             </li>
           </ul>
         </DisclosurePanel>
       </Disclosure>
     </div>
+    <dialog ref="dialogSupprimer" @click=";($event.currentTarget as any).close()">
+      <button
+        type="button"
+        class="focus-style justify-self-end rounded-md bg-blue-300 p-2 shadow-sm"
+      >
+        Annuler</button
+      ><button
+        type="button"
+        @click="supprimerQuartier()"
+        class="focus-style rounded-md bg-red-500 p-2 shadow-sm"
+      >
+        Confirmer suppression
+      </button>
+    </dialog>
   </section>
   <div class="mt-10">
     <RouterLink to="/quartier/listquartieredit" class="rounded-3xl bg-slate-600 p-3">
