@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { supabase} from '@/supabase'
+import { supabase } from '@/supabase'
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
@@ -10,18 +10,22 @@ console.log('Quartier :', Quartier)
 let quartier = ref({})
 
 quartier.value = Quartier
+const { data: listeCommune } = await supabase.from('Commune').select('*')
+
+const optionsCommune = listeCommune?.map((commune) => ({
+  value: commune.id_Commune,
+  label: commune.nomCommune
+}))
 
 async function modifsupabasequartier() {
   if (!quartier.value) return
 
-  const { data, error } = await supabase
-    .from('Quartier')
-    .upsert(quartier.value)
+  const { data, error } = await supabase.from('Quartier').upsert(quartier.value)
   if (error) {
     console.error('Erreur lors de la mise à jour:', error.message)
   } else {
-    router.push('/quartier/listquartieredit')
-    console.log('Mise à jour réussie:')
+    router.push('/quartier/')
+    console.log('Mise à jour réussie:', quartier)
   }
 }
 </script>
@@ -47,7 +51,8 @@ async function modifsupabasequartier() {
         }"
         :submit-attrs="{ classes: { input: 'bg-red-300 p-1 rounded' } }"
       >
-        <FormKit name="nomQuartier" label="Nom de la maison" type="text" />
+        <FormKit name="nomQuartier" label="Nom du quartier" type="text" />
+        <FormKit name="id_Commune" label="Commune" type="select" :options="optionsCommune" />
       </FormKit>
     </div>
   </div>
