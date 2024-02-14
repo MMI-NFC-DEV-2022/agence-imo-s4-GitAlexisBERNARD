@@ -45,7 +45,7 @@ import Logo from '@/components/icons/logo.vue'
         <RouterLink to="/maison/edit/listemaisonedit" class="text-sm font-semibold leading-6 text-gray-900"
           >Liste des maisons à éditer</RouterLink
         >
-        <RouterLink to="/quartier/" class="text-sm font-semibold leading-6 text-gray-900"
+        <RouterLink to="/quartier/listquartieredit" class="text-sm font-semibold leading-6 text-gray-900"
           >Quartier</RouterLink
         >
       </div>
