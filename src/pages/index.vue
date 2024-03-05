@@ -7,5 +7,8 @@ import { supabase } from '@/supabase'
 const { data: { user } } = await supabase.auth.getUser()
 </script>
 <template>
-  <h1>Supabase HomePage</h1>
+  <h1>Supabase Configurateur</h1>
+  <RouterLink to="/configurateur">
+  <button class="bg-slate-500 rounded-2xl">Lien vers page configurateur SVG</button>
+  </RouterLink>
 </template>
