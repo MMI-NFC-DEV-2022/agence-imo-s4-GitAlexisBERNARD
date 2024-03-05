@@ -11,4 +11,7 @@ const { data: { user } } = await supabase.auth.getUser()
   <RouterLink to="/configurateur">
   <button class="bg-slate-500 rounded-2xl">Lien vers page configurateur SVG</button>
   </RouterLink>
+    <RouterLink to="/configurateurimage">
+  <button class="bg-lime-400 rounded-2xl">Lien vers page configurateur image</button>
+  </RouterLink>
 </template>
