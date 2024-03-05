@@ -13,9 +13,9 @@ const Chaussure = ref<ChaussureSvg>({})
       <li><a href="#dessus">Dessus</a></li>
     </ul>
   </div>
-  <div class="w-64">
-    <ChaussureDessus class="w-64" v-bind="Chaussure" id="dessus" />
-    <ChaussureProfil class="w-64" v-bind="Chaussure" id="profil" />
+  <div class="carousel w-64">
+    <ChaussureDessus class="carousel-item w-64" v-bind="Chaussure" id="dessus" />
+    <ChaussureProfil class="carousel-item w-64" v-bind="Chaussure" id="profil" />
   </div>
   <FormKit type="form" v-model="Chaussure">
     <FormKit name="semelle" label="semelle" value="#FFFFFF" type="color" />
