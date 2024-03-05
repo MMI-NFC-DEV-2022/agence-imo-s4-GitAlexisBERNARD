@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ChaussureDessus from '@/components/icons/vueDessus.vue'
 import ChaussureProfil from '@/components/icons/vueProfil.vue'
-import { ChaussureSvg } from '@/types-svg'
+import type { ChaussureSvg } from '@/types-svg'
 import { ref } from 'vue'
 const Chaussure = ref<ChaussureSvg>({})
 </script>
