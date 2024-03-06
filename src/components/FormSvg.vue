@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import ChaussureDessus from '@/components/icons/vueDessus.vue'
 import ChaussureProfil from '@/components/icons/vueProfil.vue'
-import type { ChaussureSvg } from '@/types'
+import type { Basket } from '@/types'
 import { ref } from 'vue'
-const Chaussure = ref<ChaussureSvg>({})
+const props = defineProps({
+  data: Object as () => Basket | null,
+  id: String,
+});
+
+const Chaussure = ref<Basket>(props.data ?? {})
 </script>
 <template>
   <p>Page de configuration</p>
@@ -28,4 +33,3 @@ const Chaussure = ref<ChaussureSvg>({})
     <FormKit name="trimestre" label="trimestre" value="#FFFFFF" type="color" />
   </FormKit>
 </template>
-@/types
