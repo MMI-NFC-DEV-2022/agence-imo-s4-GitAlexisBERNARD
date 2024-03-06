@@ -8,10 +8,7 @@ const { data: { user } } = await supabase.auth.getUser()
 </script>
 <template>
   <h1>Supabase Configurateur</h1>
-  <RouterLink to="/configurateur">
-  <button class="bg-slate-500 rounded-2xl">Lien vers page configurateur SVG</button>
-  </RouterLink>
-    <RouterLink to="/configurateurimage">
-  <button class="bg-lime-400 rounded-2xl">Lien vers page configurateur image</button>
+  <RouterLink to="/basket/new">
+    <button class="bg-slate-500 rounded-2xl">Lien vers page configurateur SVG</button>
   </RouterLink>
 </template>
