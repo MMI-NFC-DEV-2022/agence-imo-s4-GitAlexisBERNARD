@@ -2,7 +2,11 @@
 import { supabase } from '@/supabase'
 import { useRouter } from 'vue-router'
 import BasketProfil from '@/components/icons/vueProfil.vue'
-const { data: Basket, error } = await supabase.from('Basket').select('*')
+const props = defineProps<{
+  max?: number;
+}>();
+const { data: Basket, error } = await supabase.from('Basket').select('*').limit(props.max ?? 100);
+
 </script>
 
 <template>
