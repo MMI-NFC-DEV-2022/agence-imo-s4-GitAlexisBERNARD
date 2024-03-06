@@ -1,18 +1,12 @@
 <script setup lang="ts">
 import { supabase } from '@/supabase'
-import { useRouter } from 'vue-router'
+
 import BasketProfil from '@/components/icons/vueProfil.vue'
 const props = defineProps<{
-  max?: number
-}>()
-const {
-  data: { user }
-} = await supabase.auth.getUser()
-const { data: Basket } = await supabase
-  .from('Basket')
-  .select('*')
-  .eq('id_user', user?.id)
-  .limit(props.max ?? 100)
+  max?: number;
+}>();
+const { data: Basket } = await supabase.from('Basket').select('*').limit(props.max ?? 100);
+
 </script>
 
 <template>
