@@ -2,7 +2,7 @@
 import ChaussureDessus from '@/components/icons/vueDessus.vue'
 import ChaussureProfil from '@/components/icons/vueProfil.vue'
 import type { Basket } from '@/types'
-import { colors } from '@/types'
+import { colors, materiaux } from '@/types'
 import { ref } from 'vue'
 const props = defineProps<{
   data?: Basket
@@ -24,6 +24,20 @@ const Chaussure = ref<Basket>(props.data ?? {})
     <ChaussureProfil class="carousel-item w-64" v-bind="Chaussure" id="profil" />
   </div>
   <FormKit type="form" v-model="Chaussure">
+    <FormKit name="materiaux" label="materiaux" value="#ffffff" type="radio" :options="materiaux" :sections-schema="{
+    inner: { $el: null},
+    decorator: { $el: null },
+}" 
+input-class="peer sr-only"
+options-class="flex gap-4"
+>
+    <template #label="context">
+    <div class="h-6 w-6 rounded-full border-2 peer-checked:border-red-600" :style="{ backgroundImage: `url(${context.option.value})` }" />
+
+    <span class="sr-only">{{ context.option.label }}</span>
+
+    </template>
+</FormKit>
     <FormKit name="semelle" label="semelle" value="#FFFFFF" type="radio" :options="colors" :sections-schema="{
     inner: { $el: null},
     decorator: { $el: null },
