@@ -18,7 +18,7 @@ async function upsertBasket() {
   if (error) {
     console.error('Erreur lors de la mise à jour:', error.message)
   } else {
-    router.push('/quartier/')
+    router.push('/')
     console.log('Mise à jour réussie:', Chaussure.value)
   }
 }
