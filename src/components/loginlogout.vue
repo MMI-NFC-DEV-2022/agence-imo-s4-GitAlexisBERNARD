@@ -39,7 +39,7 @@ const register = async () => {
   if (error) {
     alert(error.message)
   } else {
-    router.push('/')
+    router.push('/dashboard')
   }
 }
 </script>
