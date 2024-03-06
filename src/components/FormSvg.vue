@@ -3,10 +3,10 @@ import ChaussureDessus from '@/components/icons/vueDessus.vue'
 import ChaussureProfil from '@/components/icons/vueProfil.vue'
 import type { Basket } from '@/types'
 import { ref } from 'vue'
-const props = defineProps({
-  data: Object as () => Basket | null,
-  id: String,
-});
+const props = defineProps<{
+  data?: Basket;
+  id?: string;
+}>();
 
 const Chaussure = ref<Basket>(props.data ?? {})
 </script>
